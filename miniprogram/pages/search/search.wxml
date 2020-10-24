@@ -1,0 +1,41 @@
+<view>
+  <!-- 设置搜索栏 -->
+  <view class="search">
+    <view class="search_view">
+      <icon type="search"></icon>
+      <input value="{{keyword}}" bindinput="input_keyword"></input>
+    </view>
+    <text bindtap="toSearch">搜索</text>
+  </view>
+  <!-- 热门搜索  9个即可 -->
+  <view class="hotsearch">
+    <view class="hotsearch_title">
+      <text>热门搜索</text>
+    </view>
+    <view class="hotsearch_list">
+      <!-- 列表 -->
+      <view bindtap="goKeyword" data-keyword="鸡蛋">鸡蛋</view>
+      <view bindtap="goKeyword" data-keyword="粉">粉</view>
+      <view bindtap="goKeyword" data-keyword="鸡翅">鸡翅</view>
+    
+    </view>
+  </view>
+  <!-- 近期搜索  存入缓存 -->
+  <view class="jqsearch">
+    <view class="jqsearch_title">
+      <text>近期搜索</text>
+    </view>
+    <view class="jqsearch_list">
+      <!-- 列表 -->
+      <block wx:if="{{historyKeywords.length>0}}">
+        <view wx:for="{{historyKeywords}}" wx:key="index" data-keyword="{{item}}" bindtap="goKeyword">{{item}}</view>
+      </block>
+      <block wx:if="{{historyKeywords.length===0}}">
+        <view>
+          暂无记录
+        </view>
+      </block>
+
+    </view>
+  </view>
+</view>

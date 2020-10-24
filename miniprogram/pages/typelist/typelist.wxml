@@ -1,0 +1,24 @@
+<view class="page">
+  <!-- 还是最上面的搜索页面 -->
+  <view>
+    <image src='../../static/type.jpg' class='img'></image>
+    <!-- bindtap="search" -->
+    <!-- 设置搜索栏 -->
+   
+  </view>
+
+  <!-- 所有的菜谱分类页面 -->
+  <view class="typelist">
+    <view class='hot-recipe'>
+      <!-- 所有分类的列表 -->
+      <mp-cells  wx:for="{{typelist}}" wx:key="index">
+        <mp-cell link hover value="{{item.typename}}" bindtap="goRecipeList" data-id="{{item._id}}"data-typename="{{item.typename}}">
+        </mp-cell>
+      </mp-cells>
+    </view>
+    <view id="addtype" bindtap="goPbmenutype">添加分类 +</view>
+  </view>
+
+
+
+</view>
